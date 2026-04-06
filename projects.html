@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects | Vivek Kesarwani</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #020617;
+  color: white;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 50px;
+  position: sticky;
+  top: 0;
+  background: rgba(2,6,23,0.95);
+}
+nav h2 {
+  color: cyan;
+}
+nav a {
+  color: #94a3b8;
+  margin-left: 20px;
+  text-decoration: none;
+}
+nav a:hover {
+  color: cyan;
+}
+.header {
+  text-align: center;
+  padding: 100px 20px 40px;
+}
+.header h1 {
+  font-size: 3rem;
+  color: cyan;
+}
+.header p {
+  color: #94a3b8;
+  margin-top: 10px;
+}
+.section {
+  padding: 60px 50px;
+}
+.section h2 {
+  margin-bottom: 30px;
+}
+.project-list {
+  display: grid;
+  gap: 25px;
+}
+.project-card {
+  background: #0f172a;
+  padding: 25px;
+  border-radius: 18px;
+  border: 1px solid #334155;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 20px cyan;
+}
+.project-card h3 {
+  margin-bottom: 12px;
+  color: cyan;
+}
+.project-card p {
+  color: #cbd5e1;
+  line-height: 1.7;
+}
+.project-card ul {
+  margin-top: 15px;
+  list-style: none;
+  padding-left: 0;
+}
+.project-card li {
+  margin-bottom: 8px;
+  color: #94a3b8;
+}
+.back-link {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 24px;
+  background: cyan;
+  color: #020617;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #64748b;
+}
+</style>
+</head>
+<body>
+<nav>
+  <h2>VK.</h2>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="index.html#skills">Skills</a>
+    <a href="projects.html">Projects</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+</nav>
+
+<section class="header">
+  <h1>Project Details</h1>
+  <p>Explore the work I have built with Python, Excel, and data analysis tools.</p>
+</section>
+
+<section class="section">
+  <h2>Highlighted Projects</h2>
+  <div class="project-list">
+    <div class="project-card">
+      <h3>Student Data Analysis</h3>
+      <p>Collected and analyzed student marks to identify trends in performance, attendance, and improvement opportunities.</p>
+      <ul>
+        <li>Tools: Python, Pandas, Matplotlib</li>
+        <li>Focus: data cleaning, visualization, and insights</li>
+        <li>Outcome: improved clarity on student score patterns</li>
+      </ul>
+    </div>
+    <div class="project-card">
+      <h3>Sales Data Summary</h3>
+      <p>Created dashboards and summaries for sales performance using Excel and Python automation.</p>
+      <ul>
+        <li>Tools: Excel, formulas, charts, Python</li>
+        <li>Focus: revenue tracking, product trends, and performance metrics</li>
+        <li>Outcome: clear business insights from raw sales data</li>
+      </ul>
+    </div>
+    <div class="project-card">
+      <h3>Personal Portfolio Website</h3>
+      <p>Designed a clean portfolio website to showcase skills, projects, and contact details.</p>
+      <ul>
+        <li>Tools: HTML, CSS</li>
+        <li>Focus: responsive layout and modern styling</li>
+        <li>Outcome: a professional showcase for your work</li>
+      </ul>
+    </div>
+  </div>
+  <a class="back-link" href="index.html">Back to Portfolio</a>
+</section>
+
+<footer>
+  © 2026 Vivek Kesarwani
+</footer>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vivek Kesarwani | Portfolio</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #020617;
+  color: white;
+}
+
+/* Navbar */
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 50px;
+  position: sticky;
+  top: 0;
+  background: rgba(2,6,23,0.9);
+}
+nav h2 {
+  color: cyan;
+}
+nav a {
+  color: #94a3b8;
+  margin-left: 20px;
+  text-decoration: none;
+}
+nav a:hover {
+  color: cyan;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 120px 20px;
+}
+.hero h1 {
+  font-size: 3rem;
+  color: cyan;
+}
+.hero p {
+  color: #94a3b8;
+  margin-top: 10px;
+}
+
+/* Button */
+button {
+  margin-top: 20px;
+  padding: 12px 25px;
+  background: cyan;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+button:hover {
+  box-shadow: 0 0 15px cyan;
+}
+
+/* Sections */
+.section {
+  padding: 80px 50px;
+}
+.section h2 {
+  margin-bottom: 30px;
+}
+
+/* Cards */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.card {
+  flex: 1;
+  min-width: 250px;
+  background: #0f172a;
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px solid #334155;
+  transition: 0.3s;
+}
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 20px cyan;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #64748b;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <h2>VK.</h2>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="#skills">Skills</a>
+    <a href="projects.html">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <h1>Vivek Kesarwani</h1>
+  <p>I turn data into insights using Python, SQL & Excel</p>
+  <a href="projects.html"><button>View Projects</button></a>
+</section>
+
+<section class="section" id="skills">
+  <h2>Skills</h2>
+  <div class="cards">
+    <div class="card">🐍 Python (Basics to Intermediate)</div>
+    <div class="card">🗄 SQL (Learning Queries)</div>
+    <div class="card">📊 Excel (Data Analysis)</div>
+    <div class="card">📈 Data Analysis (Beginner)</div>
+  </div>
+</section>
+
+<section class="section" id="projects">
+  <h2>Projects</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Student Data Analysis</h3>
+      <p>Analyzed student performance using Python.</p>
+    </div>
+    <div class="card">
+      <h3>Sales Analysis</h3>
+      <p>Created insights using Excel datasets.</p>
+    </div>
+    <div class="card">
+      <h3>Coming Soon</h3>
+      <p>More projects will be added.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <h2>Contact</h2>
+  <p>Send a message directly to <strong>kesarwaniv148@gmail.com</strong>.</p>
+  <form action="mailto:kesarwaniv148@gmail.com" method="post" enctype="text/plain">
+    <div class="cards" style="gap: 15px;">
+      <div class="card" style="background: #020617; border: 1px solid #0f172a;">
+        <label for="name">Name</label><br>
+        <input id="name" name="name" type="text" placeholder="Your name" style="width:100%; padding:12px; margin-top:8px; border-radius:10px; border:1px solid #334155; background:#020617; color:white;">
+      </div>
+      <div class="card" style="background: #020617; border: 1px solid #0f172a;">
+        <label for="email">Email</label><br>
+        <input id="email" name="email" type="email" placeholder="Your email" style="width:100%; padding:12px; margin-top:8px; border-radius:10px; border:1px solid #334155; background:#020617; color:white;">
+      </div>
+      <div class="card" style="background: #020617; border: 1px solid #0f172a; width:100%;">
+        <label for="message">Message</label><br>
+        <textarea id="message" name="message" rows="5" placeholder="Write your message" style="width:100%; padding:12px; margin-top:8px; border-radius:10px; border:1px solid #334155; background:#020617; color:white;"></textarea>
+      </div>
+    </div>
+    <button type="submit">Send Email</button>
+  </form>
+  <p style="margin-top:20px; color:#94a3b8;">If your mail client does not open automatically, copy the email address above and send the message manually.</p>
+</section>
+
+<footer>
+  © 2026 Vivek Kesarwani
+</footer>
+
+</body>
+</html>
