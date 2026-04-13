@@ -336,33 +336,66 @@ print("DataFrame:\n", df)`,
     },
   ];
 
-  projectGrid.innerHTML = projects
-    .map((project, index) => `
-      <article class="project-card reveal">
-        <div class="project-card-top">
-          <span class="tag-pill">${project.category}</span>
-          <span class="tag-pill">${project.tags.join(' · ')}</span>
-        </div>
-        <h3>${project.title}</h3>
-        <p>${project.description}</p>
-        <div class="project-actions">
-          <button class="btn-secondary code-toggle" data-index="${index}">View code</button>
-          <a href="#contact" class="btn btn-secondary">Live demo</a>
-          <a href="https://github.com" target="_blank" rel="noreferrer" class="btn-secondary">GitHub</a>
-        </div>
-        <div class="project-code" id="project-code-${index}">
-          <pre><code>${project.code}</code></pre>
-        </div>
-      </article>
-    `)
-    .join('');
+  projectGrid.innerHTML = '';
 
-  projectGrid.querySelectorAll('.code-toggle').forEach((button) => {
-    button.addEventListener('click', () => {
-      const index = button.dataset.index;
-      const codeBlock = document.getElementById(`project-code-${index}`);
-      const opened = codeBlock.classList.toggle('open');
-      button.textContent = opened ? 'Hide code' : 'View code';
+  projects.forEach((project, index) => {
+    const card = document.createElement('article');
+    card.className = 'project-card reveal';
+
+    const topRow = document.createElement('div');
+    topRow.className = 'project-tags';
+    const categoryPill = document.createElement('span');
+    categoryPill.className = 'tag-pill';
+    categoryPill.textContent = project.category;
+    const tagsPill = document.createElement('span');
+    tagsPill.className = 'tag-pill';
+    tagsPill.textContent = project.tags.join(' · ');
+    topRow.append(categoryPill, tagsPill);
+
+    const title = document.createElement('h3');
+    title.textContent = project.title;
+
+    const description = document.createElement('p');
+    description.textContent = project.description;
+
+    const actions = document.createElement('div');
+    actions.className = 'project-actions';
+
+    const toggleButton = document.createElement('button');
+    toggleButton.className = 'btn-secondary code-toggle';
+    toggleButton.type = 'button';
+    toggleButton.textContent = 'View code';
+    toggleButton.dataset.index = String(index);
+
+    const contactLink = document.createElement('a');
+    contactLink.href = '#contact';
+    contactLink.className = 'btn btn-secondary';
+    contactLink.textContent = 'Message';
+
+    const repoLink = document.createElement('a');
+    repoLink.href = 'https://github.com';
+    repoLink.target = '_blank';
+    repoLink.rel = 'noreferrer';
+    repoLink.className = 'btn-secondary';
+    repoLink.textContent = 'GitHub';
+
+    actions.append(toggleButton, contactLink, repoLink);
+
+    const codeWrapper = document.createElement('div');
+    codeWrapper.className = 'project-code';
+    codeWrapper.id = `project-code-${index}`;
+    const pre = document.createElement('pre');
+    const code = document.createElement('code');
+    code.textContent = project.code;
+    pre.appendChild(code);
+    codeWrapper.appendChild(pre);
+
+    card.append(topRow, title, description, actions, codeWrapper);
+    projectGrid.appendChild(card);
+
+    toggleButton.addEventListener('click', () => {
+      const opened = codeWrapper.classList.toggle('open');
+      toggleButton.textContent = opened ? 'Hide code' : 'View code';
     });
   });
 }
@@ -377,9 +410,9 @@ window.addEventListener('load', () => {
   loadTheme();
   setupThemeToggle();
   setupMobileMenu();
+  setupProjectCards();
   setupScrollReveal();
   setupNavHighlight();
   setupTypeAnimation();
-  setupProjectCards();
   finishLoader();
 });
