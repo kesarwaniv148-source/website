@@ -23,7 +23,8 @@ nav {
   padding: 20px 50px;
   position: sticky;
   top: 0;
-  background: rgba(2,6,23,0.95);
+  background: rgba(2,6,23,0.96);
+  z-index: 10;
 }
 nav h2 {
   color: cyan;
@@ -38,7 +39,7 @@ nav a:hover {
 }
 .header {
   text-align: center;
-  padding: 100px 20px 40px;
+  padding: 90px 20px 30px;
 }
 .header h1 {
   font-size: 3rem;
@@ -46,45 +47,132 @@ nav a:hover {
 }
 .header p {
   color: #94a3b8;
-  margin-top: 10px;
+  margin-top: 12px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.8;
 }
 .section {
-  padding: 60px 50px;
+  padding: 50px 50px;
 }
 .section h2 {
+  margin-bottom: 25px;
+}
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
   margin-bottom: 30px;
+  align-items: center;
+}
+.filter-bar button {
+  padding: 10px 18px;
+  border: 1px solid #334155;
+  background: transparent;
+  color: #cbd5e1;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.filter-bar button.active,
+.filter-bar button:hover {
+  background: cyan;
+  color: #020617;
+  border-color: cyan;
+}
+.filter-bar input {
+  margin-left: auto;
+  padding: 12px 16px;
+  border-radius: 999px;
+  border: 1px solid #334155;
+  background: #020617;
+  color: white;
+  min-width: 220px;
 }
 .project-list {
   display: grid;
-  gap: 25px;
+  gap: 22px;
 }
 .project-card {
   background: #0f172a;
-  padding: 25px;
-  border-radius: 18px;
+  padding: 24px;
+  border-radius: 20px;
   border: 1px solid #334155;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .project-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 0 20px cyan;
+  transform: translateY(-5px);
+  box-shadow: 0 0 22px rgba(6, 182, 212, 0.22);
 }
 .project-card h3 {
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   color: cyan;
 }
 .project-card p {
   color: #cbd5e1;
-  line-height: 1.7;
+  line-height: 1.8;
 }
-.project-card ul {
-  margin-top: 15px;
+.project-meta {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.project-tag,
+.project-file {
+  background: rgba(56, 189, 248, 0.08);
+  color: #e2e8f0;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+}
+.details {
+  margin-top: 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+.details.open {
+  max-height: 500px;
+}
+.details ul {
+  margin-top: 14px;
   list-style: none;
   padding-left: 0;
 }
-.project-card li {
-  margin-bottom: 8px;
+.details li {
   color: #94a3b8;
+  margin-bottom: 10px;
+}
+.toggle-button {
+  margin-top: 18px;
+  padding: 10px 18px;
+  border: 1px solid cyan;
+  background: transparent;
+  color: cyan;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  margin-bottom: 40px;
+}
+.stat-card {
+  background: #08101f;
+  border-radius: 18px;
+  border: 1px solid #334155;
+  padding: 22px;
+}
+.stat-card h3 {
+  color: cyan;
+  margin-bottom: 10px;
+}
+.stat-card p {
+  color: #94a3b8;
+  line-height: 1.7;
 }
 .back-link {
   display: inline-block;
@@ -98,8 +186,18 @@ nav a:hover {
 }
 footer {
   text-align: center;
-  padding: 20px;
+  padding: 24px;
   color: #64748b;
+}
+@media (max-width: 720px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .filter-bar input {
+    width: 100%;
+    margin-left: 0;
+  }
 }
 </style>
 </head>
@@ -115,46 +213,134 @@ footer {
 </nav>
 
 <section class="header">
-  <h1>Project Details</h1>
-  <p>Explore the work I have built with Python, Excel, and data analysis tools.</p>
+  <h1>Interactive Python Projects</h1>
+  <p>Browse every project and lesson from your learning workspace with filters, search, and expandable details.</p>
 </section>
 
 <section class="section">
-  <h2>Highlighted Projects</h2>
-  <div class="project-list">
-    <div class="project-card">
-      <h3>Student Data Analysis</h3>
-      <p>Collected and analyzed student marks to identify trends in performance, attendance, and improvement opportunities.</p>
-      <ul>
-        <li>Tools: Python, Pandas, Matplotlib</li>
-        <li>Focus: data cleaning, visualization, and insights</li>
-        <li>Outcome: improved clarity on student score patterns</li>
-      </ul>
+  <div class="stats">
+    <div class="stat-card">
+      <h3>17 Python & data scripts</h3>
+      <p>Each file is represented as a project lesson you can explore on this page.</p>
     </div>
-    <div class="project-card">
-      <h3>Sales Data Summary</h3>
-      <p>Created dashboards and summaries for sales performance using Excel and Python automation.</p>
-      <ul>
-        <li>Tools: Excel, formulas, charts, Python</li>
-        <li>Focus: revenue tracking, product trends, and performance metrics</li>
-        <li>Outcome: clear business insights from raw sales data</li>
-      </ul>
+    <div class="stat-card">
+      <h3>3 Learning paths</h3>
+      <p>Organized into Python Mastery, NumPy Basics, and Pandas Learning categories.</p>
     </div>
-    <div class="project-card">
-      <h3>Personal Portfolio Website</h3>
-      <p>Designed a clean portfolio website to showcase skills, projects, and contact details.</p>
-      <ul>
-        <li>Tools: HTML, CSS</li>
-        <li>Focus: responsive layout and modern styling</li>
-        <li>Outcome: a professional showcase for your work</li>
-      </ul>
+    <div class="stat-card">
+      <h3>Search + filter</h3>
+      <p>Instantly find the project you want by keyword, category, or topic.</p>
     </div>
   </div>
+
+  <div class="filter-bar">
+    <button class="filter-button active" data-filter="all">All</button>
+    <button class="filter-button" data-filter="Python Mastery">Python Mastery</button>
+    <button class="filter-button" data-filter="NumPy Basics">NumPy Basics</button>
+    <button class="filter-button" data-filter="Pandas Learning">Pandas Learning</button>
+    <input id="search" type="search" placeholder="Search by topic or file name...">
+  </div>
+
+  <div class="project-list" id="project-list"></div>
   <a class="back-link" href="index.html">Back to Portfolio</a>
 </section>
 
 <footer>
   © 2026 Vivek Kesarwani
 </footer>
+
+<script>
+const projects = [
+  { title: 'Python Introduction', category: 'Python Mastery', file: '01_python_introduction.py', description: 'Start your Python journey with variables, input, and core syntax.', tags: ['Beginner', 'Syntax'] },
+  { title: 'Variables & Data Types', category: 'Python Mastery', file: '02_variables_data_types.py', description: 'Explore strings, numbers, lists, tuples, and how Python stores data.', tags: ['Data types', 'Basics'] },
+  { title: 'Control Flow', category: 'Python Mastery', file: '03_control_flow.py', description: 'Practice if statements, loops, and logic to build program flow.', tags: ['Logic', 'Loops'] },
+  { title: 'Functions & Modules', category: 'Python Mastery', file: '04_functions_modules.py', description: 'Learn to organize code with functions, imports, and reusable modules.', tags: ['Functions', 'Modularity'] },
+  { title: 'Collections & File I/O', category: 'Python Mastery', file: '05_collections_file_io.py', description: 'Work with lists, dictionaries, and file read/write operations.', tags: ['Files', 'Collections'] },
+  { title: 'Object-Oriented Programming', category: 'Python Mastery', file: '06_oop.py', description: 'Understand classes, objects, and encapsulation in Python.', tags: ['OOP', 'Classes'] },
+  { title: 'Exceptions & Context Managers', category: 'Python Mastery', file: '07_exceptions_context.py', description: 'Handle errors and manage resources cleanly with try/except and with statements.', tags: ['Errors', 'Context managers'] },
+  { title: 'Modules, Packages & Virtualenv', category: 'Python Mastery', file: '08_modules_packages_virtualenv.py', description: 'Set up Python packages and isolated environments for project work.', tags: ['Packaging', 'Environment'] },
+  { title: 'Advanced Python Features', category: 'Python Mastery', file: '09_advanced_features.py', description: 'Use list comprehensions, lambda functions, and other advanced Python patterns.', tags: ['Advanced', 'Patterns'] },
+  { title: 'Practice Projects', category: 'Python Mastery', file: '10_practice_projects.py', description: 'Apply learned skills to practice projects that reinforce Python fundamentals.', tags: ['Practice', 'Projects'] },
+  { title: 'NumPy Introduction', category: 'NumPy Basics', file: '01_numpy_introduction.py', description: 'Explore NumPy arrays and why they are essential for numerical computing.', tags: ['NumPy', 'Arrays'] },
+  { title: 'Array Creation', category: 'NumPy Basics', file: '02_array_creation.py', description: 'Create arrays with different shapes, values, and initialization methods.', tags: ['Arrays', 'Creation'] },
+  { title: 'Indexing & Slicing', category: 'NumPy Basics', file: '03_array_indexing_slicing.py', description: 'Select, slice, and reshape arrays for efficient data extraction.', tags: ['Indexing', 'Slicing'] },
+  { title: 'Array Operations', category: 'NumPy Basics', file: '04_array_operations.py', description: 'Perform elementwise calculations, broadcasting, and arithmetic with arrays.', tags: ['Operations', 'Broadcasting'] },
+  { title: 'Statistical Functions', category: 'NumPy Basics', file: '05_statistical_functions.py', description: 'Compute mean, median, standard deviation, and other statistics in NumPy.', tags: ['Statistics', 'Analysis'] },
+  { title: 'Random Arrays', category: 'NumPy Basics', file: '06_random_arrays.py', description: 'Generate random data and use NumPy for simulation and sampling.', tags: ['Random', 'Sampling'] },
+  { title: 'Practice Examples', category: 'NumPy Basics', file: '07_practice_examples.py', description: 'Practice NumPy through guided examples that strengthen your array skills.', tags: ['Practice', 'Examples'] },
+  { title: 'Pandas Introduction', category: 'Pandas Learning', file: '01_pandas_introduction.py', description: 'Learn the core concepts of Pandas for structured data analysis.', tags: ['Pandas', 'DataFrame'] },
+  { title: 'Series & DataFrame', category: 'Pandas Learning', file: '02_series_dataframe.py', description: 'Work with Series and DataFrame objects to manage table-like data.', tags: ['Series', 'DataFrame'] },
+  { title: 'Read & Write Data', category: 'Pandas Learning', file: '03_read_write_data.py', description: 'Load and save CSV, Excel, and other datasets with Pandas.', tags: ['I/O', 'CSV'] },
+  { title: 'Selection & Filtering', category: 'Pandas Learning', file: '04_selection_filtering.py', description: 'Filter rows, select columns, and query datasets efficiently.', tags: ['Selection', 'Filtering'] },
+  { title: 'Groupby & Aggregation', category: 'Pandas Learning', file: '05_groupby_aggregation.py', description: 'Summarize data with groupby, aggregation, and pivot-style analysis.', tags: ['Groupby', 'Aggregation'] },
+  { title: 'Data Cleaning', category: 'Pandas Learning', file: '06_data_cleaning.py', description: 'Clean messy data with missing values, duplicates, and formatting fixes.', tags: ['Cleaning', 'Data quality'] }
+];
+
+const projectList = document.getElementById('project-list');
+const filterButtons = document.querySelectorAll('.filter-button');
+const searchInput = document.getElementById('search');
+
+function renderProjects(filter = 'all', search = '') {
+  const query = search.trim().toLowerCase();
+  projectList.innerHTML = '';
+
+  const filtered = projects.filter(project => {
+    const matchesFilter = filter === 'all' || project.category === filter;
+    const matchesSearch = !query || [project.title, project.file, project.description, project.category]
+      .some(value => value.toLowerCase().includes(query));
+    return matchesFilter && matchesSearch;
+  });
+
+  if (!filtered.length) {
+    projectList.innerHTML = '<p style="color:#94a3b8;">No projects match this search. Try another keyword.</p>';
+    return;
+  }
+
+  filtered.forEach((project, index) => {
+    const card = document.createElement('div');
+    card.className = 'project-card';
+    card.innerHTML = `
+      <h3>${project.title}</h3>
+      <p>${project.description}</p>
+      <div class="project-meta">
+        <span class="project-tag">${project.category}</span>
+        <span class="project-file">${project.file}</span>
+      </div>
+      <button class="toggle-button" data-index="${index}">Show details</button>
+      <div class="details" id="details-${index}">
+        <ul>${project.tags.map(tag => `<li>• ${tag}</li>`).join('')}</ul>
+      </div>
+    `;
+    projectList.appendChild(card);
+  });
+
+  const toggleButtons = document.querySelectorAll('.toggle-button');
+  toggleButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const idx = button.dataset.index;
+      const details = document.getElementById(`details-${idx}`);
+      const open = details.classList.toggle('open');
+      button.textContent = open ? 'Hide details' : 'Show details';
+    });
+  });
+}
+
+filterButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    filterButtons.forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+    const category = button.getAttribute('data-filter');
+    renderProjects(category, searchInput.value);
+  });
+});
+
+searchInput.addEventListener('input', () => {
+  const activeButton = document.querySelector('.filter-button.active');
+  const category = activeButton ? activeButton.getAttribute('data-filter') : 'all';
+  renderProjects(category, searchInput.value);
+});
+
+renderProjects();
+</script>
 </body>
 </html>
