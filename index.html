@@ -1,198 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vivek Kesarwani | Portfolio</title>
-
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background: #020617;
-  color: white;
-}
-
-/* Navbar */
-nav {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 50px;
-  position: sticky;
-  top: 0;
-  background: rgba(2,6,23,0.9);
-}
-nav h2 {
-  color: cyan;
-}
-nav a {
-  color: #94a3b8;
-  margin-left: 20px;
-  text-decoration: none;
-}
-nav a:hover {
-  color: cyan;
-}
-
-/* Hero */
-.hero {
-  text-align: center;
-  padding: 120px 20px;
-}
-.hero h1 {
-  font-size: 3rem;
-  color: cyan;
-}
-.hero p {
-  color: #94a3b8;
-  margin-top: 10px;
-}
-
-/* Button */
-button {
-  margin-top: 20px;
-  padding: 12px 25px;
-  background: cyan;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-}
-button:hover {
-  box-shadow: 0 0 15px cyan;
-}
-
-/* Sections */
-.section {
-  padding: 80px 50px;
-}
-.section h2 {
-  margin-bottom: 30px;
-}
-
-/* Cards */
-.cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-.card {
-  flex: 1;
-  min-width: 250px;
-  background: #0f172a;
-  padding: 20px;
-  border-radius: 15px;
-  border: 1px solid #334155;
-  transition: 0.3s;
-}
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 0 20px cyan;
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 20px;
-  color: #64748b;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vivek Kesarwani | Developer Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
-
-<body>
-
-<nav>
-  <h2>VK.</h2>
-  <div>
-    <a href="index.html">Home</a>
-    <a href="#skills">Skills</a>
-    <a href="projects.html">Projects</a>
-    <a href="#contact">Contact</a>
+<body data-page="home">
+  <div class="page-loader" id="page-loader">
+    <div class="loader-ring"></div>
   </div>
-</nav>
 
-<section class="hero">
-  <h1>Vivek Kesarwani</h1>
-  <p>Explore interactive Python, NumPy, and Pandas learning projects built for real analysis and practice.</p>
-  <a href="projects.html"><button>Explore Projects</button></a>
-</section>
-
-<section class="section" id="hire">
-  <h2>Hire Me</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>Data Analyst & SQL Support</h3>
-      <p>I build clear dashboards, write SQL queries, and turn raw data into actionable business insights.</p>
-      <p style="margin-top:10px; color:#94a3b8;">Reach out if you want a data analyst who understands Python, SQL, and reporting.</p>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="skills">
-  <h2>Skills</h2>
-  <div class="cards">
-    <div class="card">🐍 Python (Basics to Intermediate)</div>
-    <div class="card">🔢 SQL (Database queries & reporting)</div>
-    <div class="card">🔢 NumPy (Arrays & statistics)</div>
-    <div class="card">🐼 Pandas (Data cleaning & analysis)</div>
-    <div class="card">📊 Data Storytelling</div>
-  </div>
-</section>
-
-<section class="section" id="projects">
-  <h2>Project Categories</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>Python Mastery</h3>
-      <p>10 hands-on lessons on Python fundamentals, OOP, file I/O, and advanced patterns.</p>
-      <p style="margin-top:10px; color:#94a3b8;">17 files across Python, NumPy, and Pandas.</p>
-    </div>
-    <div class="card">
-      <h3>NumPy Basics</h3>
-      <p>Foundational array work with creation, indexing, operations, statistics, and randomness.</p>
-      <p style="margin-top:10px; color:#94a3b8;">7 practical NumPy examples to build confidence.</p>
-    </div>
-    <div class="card">
-      <h3>Pandas Learning</h3>
-      <p>Dataframes, selection, I/O, groupby aggregation, and cleaning explained with code.</p>
-      <p style="margin-top:10px; color:#94a3b8;">6 structured Pandas lessons for real analysis.</p>
-    </div>
-  </div>
-  <a href="projects.html"><button>View all projects</button></a>
-</section>
-
-<section class="section" id="contact">
-  <h2>Contact</h2>
-  <p>I am available for data analyst work and SQL-based reporting projects. Send a message directly to <strong>kesarwaniv148@gmail.com</strong>.</p>
-  <form action="mailto:kesarwaniv148@gmail.com" method="post" enctype="text/plain">
-    <div class="cards" style="gap: 15px;">
-      <div class="card" style="background: #020617; border: 1px solid #0f172a;">
-        <label for="name">Name</label><br>
-        <input id="name" name="name" type="text" placeholder="Your name" style="width:100%; padding:12px; margin-top:8px; border-radius:10px; border:1px solid #334155; background:#020617; color:white;">
-      </div>
-      <div class="card" style="background: #020617; border: 1px solid #0f172a;">
-        <label for="email">Email</label><br>
-        <input id="email" name="email" type="email" placeholder="Your email" style="width:100%; padding:12px; margin-top:8px; border-radius:10px; border:1px solid #334155; background:#020617; color:white;">
-      </div>
-      <div class="card" style="background: #020617; border: 1px solid #0f172a; width:100%;">
-        <label for="message">Message</label><br>
-        <textarea id="message" name="message" rows="5" placeholder="Write your message" style="width:100%; padding:12px; margin-top:8px; border-radius:10px; border:1px solid #334155; background:#020617; color:white;"></textarea>
+  <header class="site-header reveal">
+    <div class="nav-container">
+      <a class="brand" href="index.html">Vivek<span class="brand-highlight">.</span></a>
+      <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">☀️</button>
+        <button class="mobile-menu-btn" aria-label="Toggle menu">☰</button>
       </div>
     </div>
-    <button type="submit">Send Email</button>
-  </form>
-  <p style="margin-top:20px; color:#94a3b8;">If your mail client does not open automatically, copy the email address above and send the message manually.</p>
-</section>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </header>
 
-<footer>
-  © 2026 Vivek Kesarwani
-</footer>
+  <main class="main-content">
+    <section class="hero section" id="home">
+      <div class="hero-grid">
+        <div class="hero-content reveal">
+          <p class="eyebrow">Data Analyst & Python Developer</p>
+          <h1>Hi, I’m <span>Vivek</span> — a <span id="typed-text"></span></h1>
+          <p>I help businesses turn raw data into strong decisions with Python, SQL, Pandas, and clean storytelling.</p>
+          <div class="hero-cta">
+            <a class="btn" href="projects.html">Explore Projects</a>
+            <a class="btn-secondary" href="#contact">Work with me</a>
+          </div>
+        </div>
 
+        <div class="hero-visual reveal">
+          <div class="hero-glow"></div>
+          <div class="hero-card">
+            <h3>Portfolio highlights</h3>
+            <ul>
+              <li>SQL query optimization for dashboards</li>
+              <li>Interactive project cards with readable code samples</li>
+              <li>Responsive developer portfolio design</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about" id="about">
+      <div class="section-title">
+        <h2>About Me</h2>
+      </div>
+      <p class="section-description reveal">I’m a beginner-to-intermediate developer specializing in data analysis, Python scripting, and SQL reporting. I create polished learning projects, clean data layouts, and modern portfolio experiences designed to impress recruiters.</p>
+      <div class="about-grid">
+        <div class="about-card reveal">
+          <h3>Who I am</h3>
+          <p>I build practical analytics solutions using Python, NumPy, Pandas, and SQL. My goal is to make data approachable and useful for decision makers.</p>
+        </div>
+        <div class="about-card reveal">
+          <h3>What I do</h3>
+          <ul>
+            <li>Data cleaning and preprocessing</li>
+            <li>Dashboard-ready SQL queries</li>
+            <li>Python code examples for learning</li>
+            <li>Portfolio and personal branding</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section skills" id="skills">
+      <div class="section-title">
+        <h2>Skills</h2>
+      </div>
+      <div class="skills-grid reveal">
+        <div class="skill-card">
+          <h3>Technical Skills</h3>
+          <div class="skill-meter">
+            <div class="skill-item">
+              <div class="skill-label"><span>Python</span><span>85%</span></div>
+              <div class="skill-bar"><div class="skill-fill" style="width: 85%;"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-label"><span>SQL</span><span>78%</span></div>
+              <div class="skill-bar"><div class="skill-fill" style="width: 78%;"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-label"><span>Pandas</span><span>80%</span></div>
+              <div class="skill-bar"><div class="skill-fill" style="width: 80%;"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-label"><span>NumPy</span><span>75%</span></div>
+              <div class="skill-bar"><div class="skill-fill" style="width: 75%;"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-label"><span>HTML & CSS</span><span>72%</span></div>
+              <div class="skill-bar"><div class="skill-fill" style="width: 72%;"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>Soft Skills</h3>
+          <ul>
+            <li>Attention to detail with clean visuals</li>
+            <li>Organized and simple user experiences</li>
+            <li>Fast iteration and learning mindset</li>
+            <li>Clear communication for recruiters and clients</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section projects-preview" id="projects">
+      <div class="section-title">
+        <h2>Featured Projects</h2>
+      </div>
+      <div class="project-grid reveal">
+        <article class="project-card">
+          <span class="tag-pill">Python Mastery</span>
+          <h3>Interactive Python Learning</h3>
+          <p>A polished collection of Python examples including OOP, functions, and file I/O.</p>
+          <div class="project-actions">
+            <a class="btn-secondary" href="projects.html">View all</a>
+            <a class="btn" href="#contact">Hire me</a>
+          </div>
+        </article>
+        <article class="project-card">
+          <span class="tag-pill">NumPy Basics</span>
+          <h3>Array computing simplified</h3>
+          <p>NumPy examples for array creation, indexing, operations, and statistics.</p>
+          <div class="project-actions">
+            <a class="btn-secondary" href="projects.html">View all</a>
+            <a class="btn" href="#contact">Work with me</a>
+          </div>
+        </article>
+        <article class="project-card">
+          <span class="tag-pill">Pandas Learning</span>
+          <h3>Data cleaning & analytics</h3>
+          <p>Structured Pandas lessons that show dataframes, groupby, filtering, and cleaning.</p>
+          <div class="project-actions">
+            <a class="btn-secondary" href="projects.html">View all</a>
+            <a class="btn" href="#contact">Contact</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="section-title">
+        <h2>Contact</h2>
+      </div>
+      <div class="contact-grid reveal">
+        <div class="contact-card">
+          <h3>Let's build together</h3>
+          <p>I’m available for data analyst roles, SQL reporting tasks, and portfolio website work. If you want a clean analytics portfolio or a data-driven solution, send a message and let’s connect.</p>
+          <p><strong>Email:</strong> kesarwaniv148@gmail.com</p>
+        </div>
+        <form class="contact-form contact-card" action="mailto:kesarwaniv148@gmail.com" method="post" enctype="text/plain">
+          <div class="contact-field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Your name" required>
+          </div>
+          <div class="contact-field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="Your email" required>
+          </div>
+          <div class="contact-field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Describe your project or role" required></textarea>
+          </div>
+          <button class="btn" type="submit">Send message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Vivek Kesarwani • Built for modern developer portfolios
+  </footer>
+
+  <script src="script.js" defer></script>
 </body>
 </html>

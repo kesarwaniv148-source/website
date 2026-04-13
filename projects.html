@@ -1,849 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Projects | Vivek Kesarwani</title>
-
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-}
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background: #020617;
-  color: white;
-}
-nav {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 50px;
-  position: sticky;
-  top: 0;
-  background: rgba(2,6,23,0.96);
-  z-index: 10;
-}
-nav h2 {
-  color: cyan;
-}
-nav a {
-  color: #94a3b8;
-  margin-left: 20px;
-  text-decoration: none;
-}
-nav a:hover {
-  color: cyan;
-}
-.header {
-  text-align: center;
-  padding: 90px 20px 30px;
-}
-.header h1 {
-  font-size: 3rem;
-  color: cyan;
-}
-.header p {
-  color: #94a3b8;
-  margin-top: 12px;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.8;
-}
-.section {
-  padding: 50px 50px;
-}
-.section h2 {
-  margin-bottom: 25px;
-}
-.filter-bar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 30px;
-  align-items: center;
-}
-.filter-bar button {
-  padding: 10px 18px;
-  border: 1px solid #334155;
-  background: transparent;
-  color: #cbd5e1;
-  border-radius: 999px;
-  cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease;
-}
-.filter-bar button.active,
-.filter-bar button:hover {
-  background: cyan;
-  color: #020617;
-  border-color: cyan;
-}
-.filter-bar input {
-  margin-left: auto;
-  padding: 12px 16px;
-  border-radius: 999px;
-  border: 1px solid #334155;
-  background: #020617;
-  color: white;
-  min-width: 220px;
-}
-.project-list {
-  display: grid;
-  gap: 22px;
-}
-.project-card {
-  background: #0f172a;
-  padding: 24px;
-  border-radius: 20px;
-  border: 1px solid #334155;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 22px rgba(6, 182, 212, 0.22);
-}
-.project-card h3 {
-  margin-bottom: 10px;
-  color: cyan;
-}
-.project-card p {
-  color: #cbd5e1;
-  line-height: 1.8;
-}
-.project-meta {
-  margin-top: 16px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-.project-tag,
-.project-file {
-  background: rgba(56, 189, 248, 0.08);
-  color: #e2e8f0;
-  padding: 8px 12px;
-  border-radius: 999px;
-  font-size: 0.9rem;
-}
-.details {
-  margin-top: 18px;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease;
-}
-.details.open {
-  max-height: 900px;
-}
-.details ul {
-  margin-top: 14px;
-  list-style: none;
-  padding-left: 0;
-}
-.details li {
-  color: #94a3b8;
-  margin-bottom: 10px;
-}
-.code-block {
-  margin-top: 20px;
-  background: #020617;
-  border: 1px solid #334155;
-  padding: 18px;
-  border-radius: 18px;
-  overflow-x: auto;
-  max-height: 360px;
-}
-.code-block code {
-  display: block;
-  white-space: pre;
-  font-family: 'Courier New', monospace;
-  color: #e2e8f0;
-  line-height: 1.45;
-}
-.toggle-button {
-  margin-top: 18px;
-  padding: 10px 18px;
-  border: 1px solid cyan;
-  background: transparent;
-  color: cyan;
-  border-radius: 999px;
-  cursor: pointer;
-}
-.stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 18px;
-  margin-bottom: 40px;
-}
-.stat-card {
-  background: #08101f;
-  border-radius: 18px;
-  border: 1px solid #334155;
-  padding: 22px;
-}
-.stat-card h3 {
-  color: cyan;
-  margin-bottom: 10px;
-}
-.stat-card p {
-  color: #94a3b8;
-  line-height: 1.7;
-}
-.back-link {
-  display: inline-block;
-  margin-top: 30px;
-  padding: 12px 24px;
-  background: cyan;
-  color: #020617;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-}
-footer {
-  text-align: center;
-  padding: 24px;
-  color: #64748b;
-}
-@media (max-width: 720px) {
-  nav {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .filter-bar input {
-    width: 100%;
-    margin-left: 0;
-  }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | Vivek Kesarwani</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-<nav>
-  <h2>VK.</h2>
-  <div>
-    <a href="index.html">Home</a>
-    <a href="index.html#skills">Skills</a>
-    <a href="projects.html">Projects</a>
-    <a href="index.html#contact">Contact</a>
-  </div>
-</nav>
-
-<section class="header">
-  <h1>Interactive Python Projects</h1>
-  <p>Browse every project and lesson from your learning workspace with filters, search, and expandable details.</p>
-</section>
-
-<section class="section">
-  <div class="stats">
-    <div class="stat-card">
-      <h3>17 Python & data scripts</h3>
-      <p>Each file is represented as a project lesson you can explore on this page.</p>
-    </div>
-    <div class="stat-card">
-      <h3>3 Learning paths</h3>
-      <p>Organized into Python Mastery, NumPy Basics, and Pandas Learning categories.</p>
-    </div>
-    <div class="stat-card">
-      <h3>Search + filter</h3>
-      <p>Instantly find the project you want by keyword, category, or topic.</p>
-    </div>
+<body data-page="projects">
+  <div class="page-loader" id="page-loader">
+    <div class="loader-ring"></div>
   </div>
 
-  <div class="filter-bar">
-    <button class="filter-button active" data-filter="all">All</button>
-    <button class="filter-button" data-filter="Python Mastery">Python Mastery</button>
-    <button class="filter-button" data-filter="NumPy Basics">NumPy Basics</button>
-    <button class="filter-button" data-filter="Pandas Learning">Pandas Learning</button>
-    <input id="search" type="search" placeholder="Search by topic or file name...">
-  </div>
-
-  <div class="project-list" id="project-list"></div>
-  <a class="back-link" href="index.html">Back to Portfolio</a>
-</section>
-
-<footer>
-  © 2026 Vivek Kesarwani
-</footer>
-
-<script>
-const projects = [
-  { title: 'Python Introduction', category: 'Python Mastery', file: '01_python_introduction.py', description: 'Start your Python journey with variables, input, and core syntax.', tags: ['Beginner', 'Syntax'], code: `"""Introduction to Python for beginners."""
-
-print("Hello, Python!")
-
-# Comments in Python
-# This is a single-line comment.
-
-"""This is a
-multiline comment or docstring."""
-
-# Basic math and print statements
-print("2 + 3 =", 2 + 3)
-print("Python supports strings, numbers, and easy output.")` },
-  { title: 'Variables & Data Types', category: 'Python Mastery', file: '02_variables_data_types.py', description: 'Explore strings, numbers, lists, tuples, and how Python stores data.', tags: ['Data types', 'Basics'], code: `"""Python variables and data types."""
-
-# Variables and assignment
-name = "Vivek"
-age = 20
-pi = 3.14159
-
-# Basic types
-print("Name:", name)
-print("Age:", age)
-print("Pi:", pi)
-
-# Type conversions
-print("Type of name:", type(name))
-print("Type of age:", type(age))
-print("Type of pi:", type(pi))
-
-# Strings and formatting
-message = "Hello, {}! You are {} years old.".format(name, age)
-print(message)` },
-  { title: 'Control Flow', category: 'Python Mastery', file: '03_control_flow.py', description: 'Practice if statements, loops, and logic to build program flow.', tags: ['Logic', 'Loops'], code: `"""Control flow with conditionals and loops."""
-
-# Conditional statements
-score = 85
-if score >= 90:
-    grade = "A"
-elif score >= 75:
-    grade = "B"
-else:
-    grade = "C"
-
-print(f"Score: \${score}, Grade: \${grade}")
-
-# For loop
-for i in range(1, 6):
-    print("Number", i)
-
-# While loop
-count = 3
-while count > 0:
-    print("Countdown:", count)
-    count -= 1` },
-  { title: 'Functions & Modules', category: 'Python Mastery', file: '04_functions_modules.py', description: 'Learn to organize code with functions, imports, and reusable modules.', tags: ['Functions', 'Modularity'], code: `"""Functions and modules in Python."""
-
-# Define a function
-
-def greet(name):
-    return f"Hello, \${name}!"
-
-print(greet("Vivek"))
-
-# Function with default argument
-
-def power(base, exponent=2):
-    return base ** exponent
-
-print("3 squared =", power(3))
-print("2 cubed =", power(2, 3))
-
-# Import a built-in module
-import math
-print("Square root of 16:", math.sqrt(16))` },
-  { title: 'Collections & File I/O', category: 'Python Mastery', file: '05_collections_file_io.py', description: 'Work with lists, dictionaries, and file read/write operations.', tags: ['Files', 'Collections'], code: `"""Collections and file I/O in Python."""
-
-# Lists
-fruits = ["apple", "banana", "cherry"]
-fruits.append("date")
-print("List of fruits:", fruits)
-
-# Tuples
-coordinates = (10, 20)
-print("Coordinates tuple:", coordinates)
-
-# Dictionary
-student = {"name": "Vivek", "age": 20, "city": "Delhi"}
-print("Student dictionary:", student)
-print("Student name:", student["name"])
-
-# Set
-unique_numbers = {1, 2, 2, 3, 4}
-print("Unique numbers set:", unique_numbers)
-
-# File input/output
-with open("sample_text.txt", "w", encoding="utf-8") as file:
-    file.write("This is a sample file for Python learning.\n")
-
-with open("sample_text.txt", "r", encoding="utf-8") as file:
-    content = file.read()
-    print("File content:\n", content)` },
-  { title: 'Object-Oriented Programming', category: 'Python Mastery', file: '06_oop.py', description: 'Understand classes, objects, and encapsulation in Python.', tags: ['OOP', 'Classes'], code: `"""Object-oriented programming in Python."""
-
-class Animal:
-    def __init__(self, name):
-        self.name = name
-
-    def speak(self):
-        return f"\${self.name} makes a sound."
-
-
-class Dog(Animal):
-    def speak(self):
-        return f"\${self.name} says woof!"
-
-
-pet = Dog("Buddy")
-print(pet.speak())
-print("Pet name:", pet.name)` },
-  { title: 'Exceptions & Context Managers', category: 'Python Mastery', file: '07_exceptions_context.py', description: 'Handle errors and manage resources cleanly with try/except and with statements.', tags: ['Errors', 'Context managers'], code: `"""Error handling and context managers."""
-
-try:
-    value = int("abc")
-except ValueError as error:
-    print("Caught a ValueError:", error)
-else:
-    print("Conversion succeeded:", value)
-finally:
-    print("This block always runs.")
-
-# Context manager for files
-with open("sample_text.txt", "r", encoding="utf-8") as file:
-    print("Read from file in context manager:")
-    print(file.read())` },
-  { title: 'Modules, Packages & Virtualenv', category: 'Python Mastery', file: '08_modules_packages_virtualenv.py', description: 'Set up Python packages and isolated environments for project work.', tags: ['Packaging', 'Environment'], code: `"""Python modules, packages, and virtual environment notes."""
-
-# Built-in module usage
-import os
-import sys
-
-print("Current working directory:", os.getcwd())
-print("Python executable:", sys.executable)
-
-# Create a package structure example (not executed here)
-# package_name/
-#   __init__.py
-#   module.py
-
-print("Use virtual environments to isolate projects.")
-print("Create one with: python -m venv env")
-print("Activate it and install dependencies inside the environment.")` },
-  { title: 'Advanced Python Features', category: 'Python Mastery', file: '09_advanced_features.py', description: 'Use list comprehensions, lambda functions, and other advanced Python patterns.', tags: ['Advanced', 'Patterns'], code: `"""Advanced Python features for more experienced learners."""
-
-# List comprehension
-squares = [x * x for x in range(1, 6)]
-print("Squares:", squares)
-
-# Generator expression and generator function
-simple_generator = (x * 2 for x in range(5))
-print("Generator values:", list(simple_generator))
-
-
-def countdown(n):
-    while n > 0:
-        yield n
-        n -= 1
-
-for value in countdown(3):
-    print("Countdown value:", value)
-
-# Decorator example
-
-def uppercase(func):
-    def wrapper(text):
-        return func(text).upper()
-    return wrapper
-
-
-@uppercase
-def greet(text):
-    return f"Hello, \${text}"
-
-print(greet("Vivek"))` },
-  { title: 'Practice Projects', category: 'Python Mastery', file: '10_practice_projects.py', description: 'Apply learned skills to practice projects that reinforce Python fundamentals.', tags: ['Practice', 'Projects'], code: `"""Practice mini projects for Python learners."""
-
-# Project 1: Simple number guessing game
-import random
-
-number = random.randint(1, 10)
-guess = None
-tries = 0
-
-while guess != number:
-    guess = int(input("Guess a number between 1 and 10: "))
-    tries += 1
-    if guess < number:
-        print("Too low.")
-    elif guess > number:
-        print("Too high.")
-    else:
-        print(f"Correct! You guessed it in \${tries} tries.")
-
-# Project 2: Dictionary of student scores
-student_scores = {
-    "Alice": 85,
-    "Bob": 78,
-    "Charlie": 92,
-}
-print("Student scores:", student_scores)
-print("Average score:", sum(student_scores.values()) / len(student_scores))` },
-  { title: 'NumPy Introduction', category: 'NumPy Basics', file: '01_numpy_introduction.py', description: 'Explore NumPy arrays and why they are essential for numerical computing.', tags: ['NumPy', 'Arrays'], code: `"""NumPy introduction for beginners."""
-
-import numpy as np
-
-print("NumPy version:", np.__version__)
-
-# NumPy arrays are the core data structure for numeric computing.
-python_list = [1, 2, 3, 4, 5]
-numpy_array = np.array(python_list)
-
-print("Python list:", python_list)
-print("NumPy array:", numpy_array)
-print("Type of numpy_array:", type(numpy_array))
-print("Array dtype:", numpy_array.dtype)
-print("Array shape:", numpy_array.shape)` },
-  { title: 'Array Creation', category: 'NumPy Basics', file: '02_array_creation.py', description: 'Create arrays with different shapes, values, and initialization methods.', tags: ['Arrays', 'Creation'], code: `"""Array creation examples in NumPy."""
-
-import numpy as np
-
-# From Python lists
-arr1 = np.array([10, 20, 30, 40])
-arr2 = np.array([[1, 2, 3], [4, 5, 6]])
-
-print("arr1:", arr1)
-print("arr1 shape:", arr1.shape)
-print("arr2:\n", arr2)
-print("arr2 shape:", arr2.shape)
-
-# Special arrays
-zeros = np.zeros((2, 3))
-ones = np.ones((3, 2))
-full = np.full((2, 2), 7)
-identity = np.eye(4)
-
-print("zeros:\n", zeros)
-print("ones:\n", ones)
-print("full:\n", full)
-print("identity matrix:\n", identity)
-
-# Create arrays with ranges and linearly spaced values
-range_arr = np.arange(0, 10, 2)
-linear = np.linspace(0, 1, 5)
-
-print("arange 0-8 step 2:", range_arr)
-print("linspace 0-1 with 5 values:", linear)` },
-  { title: 'Indexing & Slicing', category: 'NumPy Basics', file: '03_array_indexing_slicing.py', description: 'Select, slice, and reshape arrays for efficient data extraction.', tags: ['Indexing', 'Slicing'], code: `"""Indexing and slicing examples in NumPy."""
-
-import numpy as np
-
-arr = np.array([[10, 20, 30], [40, 50, 60], [70, 80, 90]])
-
-print("Original array:\n", arr)
-print("Element at row 0, col 1:", arr[0, 1])
-print("First row:", arr[0])
-print("Second column:\n", arr[:, 1])
-print("Subarray row 0-1, col 1-2:\n", arr[0:2, 1:3])
-
-# Boolean indexing
-mask = arr > 50
-print("Mask for values > 50:\n", mask)
-print("Values > 50:", arr[mask])
-
-# Modify a slice and observe behavior
-slice_view = arr[1:, 1:]
-slice_view[0, 0] = 555
-print("Modified slice:\n", slice_view)
-print("Original array after modifying view:\n", arr)` },
-  { title: 'Array Operations', category: 'NumPy Basics', file: '04_array_operations.py', description: 'Perform elementwise calculations, broadcasting, and arithmetic with arrays.', tags: ['Operations', 'Broadcasting'], code: `"""Basic array operations in NumPy."""
-
-import numpy as np
-
-arr1 = np.array([1, 2, 3, 4])
-arr2 = np.array([10, 20, 30, 40])
-
-print("arr1:", arr1)
-print("arr2:", arr2)
-
-print("Addition:", arr1 + arr2)
-print("Subtraction:", arr2 - arr1)
-print("Multiplication:", arr1 * 2)
-print("Division:", arr2 / 2)
-print("Square:", arr1 ** 2)
-
-# Elementwise operations with 2D arrays
-A = np.array([[1, 2], [3, 4]])
-B = np.array([[10, 20], [30, 40]])
-print("A:\n", A)
-print("B:\n", B)
-print("A + B:\n", A + B)
-print("A * B (elementwise):\n", A * B)
-
-# Matrix multiplication
-print("A dot B:\n", A.dot(B))
-print("A @ B:\n", A @ B)
-
-# Broadcasting example
-C = np.array([1, 2, 3])
-D = np.array([[10], [20], [30]])
-print("Broadcast C + D:\n", C + D)` },
-  { title: 'Statistical Functions', category: 'NumPy Basics', file: '05_statistical_functions.py', description: 'Compute mean, median, standard deviation, and other statistics in NumPy.', tags: ['Statistics', 'Analysis'], code: `"""Statistical and summary functions in NumPy."""
-
-import numpy as np
-
-arr = np.array([[5, 10, 15], [20, 25, 30], [35, 40, 45]])
-
-print("Array:\n", arr)
-print("Sum of all values:", arr.sum())
-print("Minimum value:", arr.min())
-print("Maximum value:", arr.max())
-print("Mean value:", arr.mean())
-print("Median value:", np.median(arr))
-print("Standard deviation:", arr.std())
-print("Variance:", arr.var())
-
-print("Sum by column:", arr.sum(axis=0))
-print("Sum by row:", arr.sum(axis=1))` },
-  { title: 'Random Arrays', category: 'NumPy Basics', file: '06_random_arrays.py', description: 'Generate random data and use NumPy for simulation and sampling.', tags: ['Random', 'Sampling'], code: `"""Generating random arrays with NumPy."""
-
-import numpy as np
-
-# Random values between 0 and 1
-random_float = np.random.rand(3, 4)
-print("Random floats 3x4:\n", random_float)
-
-# Random integers in a range
-random_int = np.random.randint(0, 10, size=(3, 3))
-print("Random integers 3x3:\n", random_int)
-
-# Random normal distribution
-normal_data = np.random.randn(5)
-print("Random normal values:", normal_data)
-
-# Shuffle an array
-original = np.arange(1, 11)
-shuffled = original.copy()
-np.random.shuffle(shuffled)
-print("Original:", original)
-print("Shuffled:", shuffled)` },
-  { title: 'Practice Examples', category: 'NumPy Basics', file: '07_practice_examples.py', description: 'Practice NumPy through guided examples that strengthen your array skills.', tags: ['Practice', 'Examples'], code: `"""Practice examples combining NumPy basics."""
-
-import numpy as np
-
-# Example 1: Create a 3x3 array and compute the row sums
-arr = np.array([[2, 4, 6], [1, 3, 5], [7, 8, 9]])
-print("Array:\n", arr)
-print("Row sums:", arr.sum(axis=1))
-print("Column sums:", arr.sum(axis=0))
-
-# Example 2: Find values greater than 5
-greater_than_five = arr[arr > 5]
-print("Values greater than 5:", greater_than_five)
-
-# Example 3: Reshape and transpose
-reshaped = np.arange(12).reshape(3, 4)
-print("Reshaped 3x4 array:\n", reshaped)
-print("Transposed:\n", reshaped.T)
-
-# Example 4: Use boolean masks to replace values
-mask = reshaped % 2 == 0
-reshaped[mask] = -1
-print("Replace even values with -1:\n", reshaped)` },
-  { title: 'Pandas Introduction', category: 'Pandas Learning', file: '01_pandas_introduction.py', description: 'Learn the core concepts of Pandas for structured data analysis.', tags: ['Pandas', 'DataFrame'], code: `"""Pandas introduction for beginners."""
-
-import pandas as pd
-
-print("pandas version:", pd.__version__)
-
-# Create a simple Series
-series = pd.Series([10, 20, 30, 40])
-print("Series:\n", series)
-
-# Create a simple DataFrame
-data = {
-    "name": ["Alice", "Bob", "Charlie"],
-    "age": [25, 30, 35],
-    "city": ["Delhi", "Mumbai", "Chennai"],
-}
-df = pd.DataFrame(data)
-print("DataFrame:\n", df)` },
-  { title: 'Series & DataFrame', category: 'Pandas Learning', file: '02_series_dataframe.py', description: 'Work with Series and DataFrame objects to manage table-like data.', tags: ['Series', 'DataFrame'], code: `"""Create and inspect pandas Series and DataFrame."""
-
-import pandas as pd
-
-# Series example
-numbers = pd.Series([100, 200, 300], index=["a", "b", "c"])
-print("Series:\n", numbers)
-print("Series values:", numbers.values)
-print("Series index:", numbers.index)
-
-# DataFrame example
-records = [
-    {"product": "Pen", "price": 10, "quantity": 2},
-    {"product": "Book", "price": 50, "quantity": 1},
-    {"product": "Bag", "price": 300, "quantity": 1},
-]
-df = pd.DataFrame(records)
-print("DataFrame:\n", df)
-print("DataFrame shape:", df.shape)
-print("DataFrame columns:", df.columns)
-print("First rows:\n", df.head())` },
-  { title: 'Read & Write Data', category: 'Pandas Learning', file: '03_read_write_data.py', description: 'Load and save CSV, Excel, and other datasets with Pandas.', tags: ['I/O', 'CSV'], code: `"""Read and write data using pandas."""
-
-import pandas as pd
-
-# Create DataFrame
-students = pd.DataFrame({
-    "name": ["Aman", "Neha", "Ravi"],
-    "score": [90, 85, 88],
-})
-print("Original DataFrame:\n", students)
-
-# Save to CSV
-students.to_csv("students.csv", index=False)
-print("Saved students.csv")
-
-# Read the CSV file back
-loaded = pd.read_csv("students.csv")
-print("Loaded DataFrame:\n", loaded)
-
-# Save and load Excel file if openpyxl is installed
-try:
-    students.to_excel("students.xlsx", index=False)
-    print("Saved students.xlsx")
-    loaded_excel = pd.read_excel("students.xlsx")
-    print("Loaded Excel DataFrame:\n", loaded_excel)
-except Exception as error:
-    print("Excel example skipped:", error)` },
-  { title: 'Selection & Filtering', category: 'Pandas Learning', file: '04_selection_filtering.py', description: 'Filter rows, select columns, and query datasets efficiently.', tags: ['Selection', 'Filtering'], code: `"""Select, filter, and access data in pandas."""
-
-import pandas as pd
-
-# Create DataFrame
-movies = pd.DataFrame({
-    "title": ["Movie A", "Movie B", "Movie C"],
-    "rating": [8.2, 7.5, 9.0],
-    "year": [2020, 2021, 2022],
-})
-print("Movies DataFrame:\n", movies)
-
-# Select a single column
-print("Ratings:\n", movies["rating"])
-
-# Select multiple columns
-print("Title and year:\n", movies[["title", "year"]])
-
-# Select rows by position and label
-print("First row:\n", movies.loc[0])
-print("First two rows:\n", movies.iloc[0:2])
-
-# Filter rows by condition
-high_rating = movies[movies["rating"] > 8.0]
-print("High rating movies:\n", high_rating)` },
-  { title: 'Groupby & Aggregation', category: 'Pandas Learning', file: '05_groupby_aggregation.py', description: 'Summarize data with groupby, aggregation, and pivot-style analysis.', tags: ['Groupby', 'Aggregation'], code: `"""Group data and compute aggregations in pandas."""
-
-import pandas as pd
-
-sales = pd.DataFrame({
-    "region": ["North", "South", "North", "East", "South"],
-    "sales": [250, 150, 300, 200, 180],
-    "month": ["Jan", "Jan", "Feb", "Feb", "Jan"],
-})
-print("Sales data:\n", sales)
-
-# Group by region and compute sums
-region_summary = sales.groupby("region").sum()
-print("Sales by region:\n", region_summary)
-
-# Multiple aggregations
-agg_summary = sales.groupby("region").agg({
-    "sales": ["sum", "mean", "max"]
-})
-print("Sales aggregation by region:\n", agg_summary)` },
-  { title: 'Data Cleaning', category: 'Pandas Learning', file: '06_data_cleaning.py', description: 'Clean messy data with missing values, duplicates, and formatting fixes.', tags: ['Cleaning', 'Data quality'], code: `"""Handle missing values and clean data in pandas."""
-
-import pandas as pd
-
-raw_data = pd.DataFrame({
-    "name": ["Asha", "Vikram", None, "Priya"],
-    "age": [25, None, 22, 28],
-    "city": ["Delhi", "Mumbai", "Delhi", None],
-})
-print("Raw data:\n", raw_data)
-
-# Detect missing values
-print("Missing value counts:\n", raw_data.isna().sum())
-
-# Drop rows with missing values
-clean_drop = raw_data.dropna()
-print("Dropped rows with missing values:\n", clean_drop)
-
-# Fill missing values
-clean_fill = raw_data.fillna({"name": "Unknown", "age": 0, "city": "Unknown"})
-print("Filled missing values:\n", clean_fill)
-
-# Convert data types if needed
-clean_fill["age"] = clean_fill["age"].astype(int)
-print("Converted age type:\n", clean_fill.dtypes)` }
-];
-
-const projectList = document.getElementById('project-list');
-const filterButtons = document.querySelectorAll('.filter-button');
-const searchInput = document.getElementById('search');
-
-function renderProjects(filter = 'all', search = '') {
-  const query = search.trim().toLowerCase();
-  projectList.innerHTML = '';
-
-  const filtered = projects.filter(project => {
-    const matchesFilter = filter === 'all' || project.category === filter;
-    const matchesSearch = !query || [project.title, project.file, project.description, project.category]
-      .some(value => value.toLowerCase().includes(query));
-    return matchesFilter && matchesSearch;
-  });
-
-  if (!filtered.length) {
-    projectList.innerHTML = '<p style="color:#94a3b8;">No projects match this search. Try another keyword.</p>';
-    return;
-  }
-
-  filtered.forEach((project, index) => {
-    const card = document.createElement('div');
-    card.className = 'project-card';
-    card.innerHTML = `
-      <h3>${project.title}</h3>
-      <p>${project.description}</p>
-      <div class="project-meta">
-        <span class="project-tag">${project.category}</span>
-        <span class="project-file">${project.file}</span>
+  <header class="site-header reveal">
+    <div class="nav-container">
+      <a class="brand" href="index.html">Vivek<span class="brand-highlight">.</span></a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="projects.html">Projects</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">☀️</button>
+        <button class="mobile-menu-btn" aria-label="Toggle menu">☰</button>
       </div>
-      <button class="toggle-button" data-index="${index}">Show code</button>
-      <div class="details" id="details-${index}">
-        <ul>${project.tags.map(tag => `<li>• ${tag}</li>`).join('')}</ul>
-        <div class="code-block"><code id="code-${index}"></code></div>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="index.html">Home</a>
+      <a href="index.html#skills">Skills</a>
+      <a href="projects.html">Projects</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <section class="hero section">
+      <div class="hero-grid">
+        <div class="hero-content reveal">
+          <p class="eyebrow">Project showcase</p>
+          <h1>Explore the code behind my learning projects</h1>
+          <p>Each project card includes clean descriptions, categories, and a code preview to help recruiters understand your skills quickly.</p>
+          <div class="hero-cta">
+            <a class="btn" href="#project-grid">View Projects</a>
+            <a class="btn-secondary" href="#contact">Contact</a>
+          </div>
+        </div>
+        <div class="hero-visual reveal">
+          <div class="hero-glow"></div>
+          <div class="hero-card">
+            <h3>What’s inside</h3>
+            <ul>
+              <li>17 real learning scripts</li>
+              <li>Python, NumPy, and Pandas workflows</li>
+              <li>Expandable code previews</li>
+            </ul>
+          </div>
+        </div>
       </div>
-    `;
-    projectList.appendChild(card);
-    document.getElementById(`code-${index}`).textContent = project.code;
-  });
+    </section>
 
-  const toggleButtons = document.querySelectorAll('.toggle-button');
-  toggleButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const idx = button.dataset.index;
-      const details = document.getElementById(`details-${idx}`);
-      const open = details.classList.toggle('open');
-      button.textContent = open ? 'Hide code' : 'Show code';
-    });
-  });
-}
+    <section class="section stats-section reveal">
+      <div class="stats">
+        <div class="stat-card">
+          <h3>17 Projects</h3>
+          <p>Samples from your Python, NumPy and Pandas collections.</p>
+        </div>
+        <div class="stat-card">
+          <h3>3 Categories</h3>
+          <p>Organized into Python Mastery, NumPy Basics, and Pandas Learning.</p>
+        </div>
+        <div class="stat-card">
+          <h3>Code preview</h3>
+          <p>Recruiters can expand each card to see the source code directly.</p>
+        </div>
+      </div>
+    </section>
 
-filterButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    filterButtons.forEach(btn => btn.classList.remove('active'));
-    button.classList.add('active');
-    const category = button.getAttribute('data-filter');
-    renderProjects(category, searchInput.value);
-  });
-});
+    <section class="section projects-preview" id="project-grid">
+      <div class="section-title">
+        <h2>Project gallery</h2>
+      </div>
+      <div class="project-grid"></div>
+    </section>
 
-searchInput.addEventListener('input', () => {
-  const activeButton = document.querySelector('.filter-button.active');
-  const category = activeButton ? activeButton.getAttribute('data-filter') : 'all';
-  renderProjects(category, searchInput.value);
-});
+    <section class="section contact" id="contact">
+      <div class="section-title">
+        <h2>Contact</h2>
+      </div>
+      <div class="contact-grid reveal">
+        <div class="contact-card">
+          <h3>Available for data analyst work</h3>
+          <p>If you want an analyst who can deliver SQL insights, Python automation, and polished code examples, send a message and start the conversation.</p>
+          <p><strong>Email:</strong> kesarwaniv148@gmail.com</p>
+        </div>
+        <form class="contact-form contact-card" action="mailto:kesarwaniv148@gmail.com" method="post" enctype="text/plain">
+          <div class="contact-field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Your name" required>
+          </div>
+          <div class="contact-field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="Your email" required>
+          </div>
+          <div class="contact-field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Write your message" required></textarea>
+          </div>
+          <button class="btn" type="submit">Send message</button>
+        </form>
+      </div>
+    </section>
+  </main>
 
-renderProjects();
-</script>
+  <footer>
+    © 2026 Vivek Kesarwani • Modern developer portfolio
+  </footer>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
