@@ -47,6 +47,30 @@ function setupScrollReveal() {
   revealElements.forEach((element) => observer.observe(element));
 }
 
+function setupInteractiveTilt() {
+  const tiltCards = document.querySelectorAll('.interactive-card');
+
+  tiltCards.forEach((card) => {
+    const resetTransform = () => {
+      card.style.transform = '';
+    };
+
+    card.addEventListener('mousemove', (event) => {
+      const rect = card.getBoundingClientRect();
+      const x = event.clientX - (rect.left + rect.width / 2);
+      const y = event.clientY - (rect.top + rect.height / 2);
+      const rotateX = (y / rect.height) * -12;
+      const rotateY = (x / rect.width) * 12;
+      card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+    });
+
+    card.addEventListener('mouseleave', resetTransform);
+    card.addEventListener('mouseenter', () => {
+      card.style.transition = 'transform 0.18s ease';
+    });
+  });
+}
+
 function setupNavHighlight() {
   const navLinks = document.querySelectorAll('.nav-links a');
   const sections = document.querySelectorAll('section[id]');
@@ -412,6 +436,7 @@ window.addEventListener('load', () => {
   setupMobileMenu();
   setupProjectCards();
   setupScrollReveal();
+  setupInteractiveTilt();
   setupNavHighlight();
   setupTypeAnimation();
   finishLoader();

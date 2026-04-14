@@ -22,6 +22,7 @@
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
+        <a href="resume.html">Resume</a>
         <a href="#contact">Contact</a>
       </nav>
       <div class="nav-actions">
@@ -34,6 +35,7 @@
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
+      <a href="resume.html">Resume</a>
       <a href="#contact">Contact</a>
     </div>
   </header>
@@ -51,9 +53,14 @@
           </div>
         </div>
 
-        <div class="hero-visual reveal">
+        <div class="hero-visual reveal interactive-card">
+          <div class="hero-decorators">
+            <span class="hero-orb orb-1"></span>
+            <span class="hero-orb orb-2"></span>
+            <span class="hero-orb orb-3"></span>
+          </div>
           <div class="hero-glow"></div>
-          <div class="hero-card">
+          <div class="hero-card interactive-card">
             <h3>Portfolio highlights</h3>
             <ul>
               <li>SQL query optimization for dashboards</li>
@@ -71,11 +78,11 @@
       </div>
       <p class="section-description reveal">I’m a beginner-to-intermediate developer specializing in data analysis, Python scripting, and SQL reporting. I create polished learning projects, clean data layouts, and modern portfolio experiences designed to impress recruiters.</p>
       <div class="about-grid">
-        <div class="about-card reveal">
+        <div class="about-card reveal interactive-card">
           <h3>Who I am</h3>
           <p>I build practical analytics solutions using Python, NumPy, Pandas, and SQL. My goal is to make data approachable and useful for decision makers.</p>
         </div>
-        <div class="about-card reveal">
+        <div class="about-card reveal interactive-card">
           <h3>What I do</h3>
           <ul>
             <li>Data cleaning and preprocessing</li>
@@ -92,32 +99,32 @@
         <h2>Skills</h2>
       </div>
       <div class="skills-grid reveal">
-        <div class="skill-card">
+        <div class="skill-card interactive-card">
           <h3>Technical Skills</h3>
           <div class="skill-meter">
             <div class="skill-item">
               <div class="skill-label"><span>Python</span><span>85%</span></div>
-              <div class="skill-bar"><div class="skill-fill" style="width: 85%;"></div></div>
+              <div class="skill-bar"><div class="skill-fill" style="--skill-width: 85%;"></div></div>
             </div>
             <div class="skill-item">
               <div class="skill-label"><span>SQL</span><span>78%</span></div>
-              <div class="skill-bar"><div class="skill-fill" style="width: 78%;"></div></div>
+              <div class="skill-bar"><div class="skill-fill" style="--skill-width: 78%;"></div></div>
             </div>
             <div class="skill-item">
               <div class="skill-label"><span>Pandas</span><span>80%</span></div>
-              <div class="skill-bar"><div class="skill-fill" style="width: 80%;"></div></div>
+              <div class="skill-bar"><div class="skill-fill" style="--skill-width: 80%;"></div></div>
             </div>
             <div class="skill-item">
               <div class="skill-label"><span>NumPy</span><span>75%</span></div>
-              <div class="skill-bar"><div class="skill-fill" style="width: 75%;"></div></div>
+              <div class="skill-bar"><div class="skill-fill" style="--skill-width: 75%;"></div></div>
             </div>
             <div class="skill-item">
               <div class="skill-label"><span>HTML & CSS</span><span>72%</span></div>
-              <div class="skill-bar"><div class="skill-fill" style="width: 72%;"></div></div>
+              <div class="skill-bar"><div class="skill-fill" style="--skill-width: 72%;"></div></div>
             </div>
           </div>
         </div>
-        <div class="skill-card">
+        <div class="skill-card interactive-card">
           <h3>Soft Skills</h3>
           <ul>
             <li>Attention to detail with clean visuals</li>
@@ -134,7 +141,7 @@
         <h2>Featured Projects</h2>
       </div>
       <div class="project-grid reveal">
-        <article class="project-card">
+        <article class="project-card interactive-card">
           <span class="tag-pill">Python Mastery</span>
           <h3>Interactive Python Learning</h3>
           <p>A polished collection of Python examples including OOP, functions, and file I/O.</p>
@@ -143,7 +150,7 @@
             <a class="btn" href="#contact">Hire me</a>
           </div>
         </article>
-        <article class="project-card">
+        <article class="project-card interactive-card">
           <span class="tag-pill">NumPy Basics</span>
           <h3>Array computing simplified</h3>
           <p>NumPy examples for array creation, indexing, operations, and statistics.</p>
@@ -152,7 +159,7 @@
             <a class="btn" href="#contact">Work with me</a>
           </div>
         </article>
-        <article class="project-card">
+        <article class="project-card interactive-card">
           <span class="tag-pill">Pandas Learning</span>
           <h3>Data cleaning & analytics</h3>
           <p>Structured Pandas lessons that show dataframes, groupby, filtering, and cleaning.</p>
@@ -169,12 +176,12 @@
         <h2>Contact</h2>
       </div>
       <div class="contact-grid reveal">
-        <div class="contact-card">
+        <div class="contact-card interactive-card">
           <h3>Let's build together</h3>
           <p>I’m available for data analyst roles, SQL reporting tasks, and portfolio website work. If you want a clean analytics portfolio or a data-driven solution, send a message and let’s connect.</p>
           <p><strong>Email:</strong> kesarwaniv148@gmail.com</p>
         </div>
-        <form class="contact-form contact-card" action="mailto:kesarwaniv148@gmail.com" method="post" enctype="text/plain">
+        <form class="contact-form contact-card interactive-card" action="mailto:kesarwaniv148@gmail.com" method="post" enctype="text/plain">
           <div class="contact-field">
             <label for="name">Name</label>
             <input id="name" name="name" type="text" placeholder="Your name" required>
